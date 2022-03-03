@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #e6eaf0;
+}
+main {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 30px;
+  max-width: 1110px;
+}
+.card {
+  border-radius: 10px;
+  background-color: #f5f7fa;
+  color: #f5f7fa;
+  padding: 24px 30px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.1) 0px 50px 100px -20px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px;
+}
+.card > p {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin-top: 16px;
+}
+.card blockquote {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 50%;
+}
+.c1,
+.c2 {
+  padding: 24px 30px 32px;
+}
+.c3,
+.c4,
+.c5 {
+  padding: 24px 30px 26px;
+}
+.c3 blockquote,
+.c4 blockquote,
+.c5 blockquote {
+  margin-top: 24px;
+}
+.author {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 15px;
+}
+.author img {
+  grid-row: span 2;
+  max-width: 32px;
+  border-radius: 50%;
+  border: 2px solid #f5f7fa;
+}
+.author p {
+  font-weight: 500;
+  font-size: 0.813rem;
+  line-height: 1rem;
+}
+.author span {
+  font-weight: 500;
+  font-size: 0.688rem;
+  line-height: 0.813rem;
+  opacity: 50%;
+}
+
+/* DIFFERENCES */
+.c1 {
+  grid-column: span 2;
+  color: #f5f7fa;
+  background: linear-gradient(90deg, #0077c7 0%, #0061a7 100%);
+  position: relative;
+}
+.c1 > p {
+  z-index: 2;
+  position: relative;
+}
+.c1 .author img {
+  border-color: #18a0fb;
+}
+.c1::after {
+  content: "";
+  width: 104px;
+  height: 102px;
+  background-image: url("./img/bg-pattern-quotation.svg");
+  position: absolute;
+  top: 0;
+  right: 80px;
+  z-index: 1;
+}
+.c2 {
+  background-color: #474d59;
+}
+.c2 .author img {
+  border-color: #474d59;
+}
+.c3 {
+  grid-row: span 2;
+  grid-column: 4;
+}
+.c3,
+.c4 {
+  color: #0b0c12;
+}
+.c3 .author img,
+.c3 .author img {
+  border-color: #f5f7fa;
+}
+.c5 {
+  grid-column: 2 / span 2;
+  background-color: #0b0c12;
+}
+.c5 .author img {
+  border-color: #0061a7;
+}
+
+
+@media (max-width: 1000px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .c3 {
+    grid-column: 1 /-1;
+    grid-row: 3;
+  }
+  .c1::after{
+    right: 24px;
+  }
+}
+@media (max-width: 700px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  .card{
+    grid-row: initial;
+    grid-column: initial;
+  }
+}
